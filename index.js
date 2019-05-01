@@ -12,6 +12,13 @@ app.get('/', (req, res) => {
 
 app.use(router)
 
-console.log("Simple API Gateway run on localhost:3000")
+app.set("port", process.env.PORT || 3000);
 
-app.listen(3000);
+/*Configuración de puerto de la app*/
+app.listen(app.get("port"), function(error) {
+    if (error == true) {
+      console.log(error);
+    }
+  
+    console.log("Node app is running on port", app.get("port"));
+  });
