@@ -10,15 +10,17 @@ app.get('/', (req, res) => {
     res.send("Simple API Gateway")
 })
 
-app.use(router)
-
 app.set("port", process.env.PORT || 3000);
+
+app.use(router)
 
 /*Configuración de puerto de la app*/
 app.listen(app.get("port"), function(error) {
     if (error == true) {
       console.log(error);
+    }else{
+      console.log("Node app is running on port", app.get("port"));
     }
   
-    console.log("Node app is running on port", app.get("port"));
+    
   });

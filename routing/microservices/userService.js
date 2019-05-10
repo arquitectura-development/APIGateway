@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 
-const BASE_URL = 'http://localhost:8088'
+const serviceURL = require('../serviceRegistry.js');
+
+const BASE_URL = serviceURL.userService();
 const api = apiAdapter(BASE_URL)
 
 router.get('/user/login', (req, res) => {

@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router()
 const apiAdapter = require('../apiAdapter')
+const serviceURL = require('../serviceRegistry.js');
 
-const BASE_URL = 'http://localhost:8088'
+const BASE_URL = serviceURL.habitsService;
+
 const api = apiAdapter(BASE_URL)
 
 router.get('/habits', (req, res) => {
