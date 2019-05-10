@@ -22,6 +22,7 @@ router.get('/user/signin', (req, res) => {
 router.get('/user/:userId/name', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
+      
     })
   })
 
