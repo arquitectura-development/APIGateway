@@ -4,7 +4,7 @@ var dictionary = require("../serviceRegistry/servicesDictionary")
 module.exports = {
     balance: function(options, service) {
         habitsServiceURL = dictionary.services("secondary", service);
-        console.log("\n Checking if SECONDARY Habits service is active")
+        console.log("\n Checking if SECONDARY", service, " service is active")
         testingPath = ''
 
         request.post(options, function(error, response) {
