@@ -8,6 +8,7 @@ const BASE_URL = serviceURL.tasksService();
 const api = apiAdapter(BASE_URL)
 
 router.get('/admin/tasks', (req, res) => {
+  console.log("making get request to /admin/tasks")
   api.get(req.path).then((resp, error) => {
     if(error){
       console.log("error", error)
