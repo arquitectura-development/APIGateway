@@ -19,7 +19,7 @@ router.get('/users/reports', async (req, res) => {
     })
 })
 
-router.get('/admin/reports/reports', async (req, res) => {
+router.get('/admin/reports/tasks', async (req, res) => {
   const BASE_URL = await serviceURL.reportsService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
