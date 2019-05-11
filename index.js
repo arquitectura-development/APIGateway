@@ -13,8 +13,6 @@ app.get('/', (req, res) => {
     res.send("Simple API Gateway")
 })
 
-
-
 app.use(router)
 
 /*Configuración de puerto de la app*/
