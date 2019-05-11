@@ -7,7 +7,10 @@ const BASE_URL = serviceURL.habitsService();
 const api = apiAdapter(BASE_URL)
 
 router.get('/habits', (req, res) => {
-  api.get(req.path).then(resp => {
+  api.get(req.path).then((resp, error) => {
+    if(error){
+      res.send(error)
+    }
     res.send(resp.data)
   })
 })
@@ -20,30 +23,45 @@ router.get('/habits/user', (req, res) => {
 
 router.get('/habits/user', (req, res) => {
     api.get(req.path).then(resp => {
+      if(error){
+        res.send(error)
+      }
       res.send(resp.data)
     })
   })
 
   router.post('/habits/user', (req, res) => {
     api.get(req.path).then(resp => {
+      if(error){
+        res.send(error)
+      }
       res.send(resp.data)
     })
   })
 
   router.get('/habits/user/:habitId', (req, res) => {
     api.get(req.path).then(resp => {
+      if(error){
+        res.send(error)
+      }
       res.send(resp.data)
     })
   })
 
   router.delete('/habits/user/:habitId', (req, res) => {
     api.get(req.path).then(resp => {
+      if(error){
+        res.send(error)
+      }
       res.send(resp.data)
     })
   })
 
   router.put('/habits/user/:habitId', (req, res) => {
     api.get(req.path).then(resp => {
+      if(error){
+        res.send(error)
+      }
       res.send(resp.data)
     })
   })
