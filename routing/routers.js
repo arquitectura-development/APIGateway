@@ -15,4 +15,4 @@ router.use(habitsService)
 router.use(tasksService)
 router.use(userService)
 
-module.exports = router
+module.exports = router;

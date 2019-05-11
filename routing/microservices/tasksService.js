@@ -7,7 +7,7 @@ const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 const BASE_URL = serviceURL.tasksService();
 const api = apiAdapter(BASE_URL)
 
-router.get('/admin/tasks', (req, res) => {
+router.get('/admin/tasks/', (req, res) => {
   console.log("making get request to /admin/tasks")
   api.get(req.path).then((resp, error) => {
     if(error){
@@ -20,25 +20,25 @@ router.get('/admin/tasks', (req, res) => {
   })
 })
 
-router.post('/users/tasks', (req, res) => {
+router.post('/users/tasks/', (req, res) => {
   api.get(req.path).then(resp => {
     res.send(resp.data)
   })
 })
 
-router.get('/users/tasks', (req, res) => {
+router.get('/users/tasks/', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
     })
   })
 
-  router.delete('/users/tasks', (req, res) => {
+  router.delete('/users/tasks/', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
     })
   })
 
-  router.put('/users/tasks', (req, res) => {
+  router.put('/users/tasks/', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
     })
