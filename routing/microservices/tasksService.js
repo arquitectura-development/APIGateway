@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 
-const serviceURL = require('../serviceRegistry.js');
+const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 
 const BASE_URL = serviceURL.tasksService();
 const api = apiAdapter(BASE_URL)
