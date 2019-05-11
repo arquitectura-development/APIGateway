@@ -3,24 +3,51 @@ var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 
-const BASE_URL = serviceURL.reportsService();
-const api = apiAdapter(BASE_URL)
+router.get('/users/reports', async (req, res) => {
+  const BASE_URL = await serviceURL.reportsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
 
-router.get('/users/reports', (req, res) => {
-  api.get(req.path).then(resp => {
-    res.send(resp.data)
-  })
+  api.get(req.path).then((resp, error) => {
+      if(error){
+        console.log("error", error)
+        res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
+      }
+    })
 })
 
-router.get('/admin/reports/tasks', (req, res) => {
-  api.get(req.path).then(resp => {
-    res.send(resp.data)
-  })
+router.get('/admin/reports/reports', async (req, res) => {
+  const BASE_URL = await serviceURL.reportsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
+      if(error){
+        console.log("error", error)
+        res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
+      }
+    })
 })
 
-router.get('/admin/reports/habits', (req, res) => {
-    api.get(req.path).then(resp => {
-      res.send(resp.data)
+router.get('/admin/reports/habits', async (req, res) => {
+    const BASE_URL = await serviceURL.reportsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
+      if(error){
+        console.log("error", error)
+        res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
+      }
     })
   })
 

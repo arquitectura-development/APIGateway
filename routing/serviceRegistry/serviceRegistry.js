@@ -1,95 +1,88 @@
-var request = require('request'); // "Request" library
+var requestP = require('request-promise'); // "Request" library
 var loadBalancer = require("../loadBalancer/loadBalancer");
 var dictionary = require("./servicesDictionary")
 
 module.exports = {
-    habitsService: function() {
+    habitsService: async function() {
         let service = "habits"
         habitsServiceURL = dictionary.services("main", service);
         console.log("\n Checking if Habits service is active")
         let testingPath = ''
 
         var options = {
-            url: habitsServiceURL+ testingPath,
-            method: 'HEAD'
+            uri: habitsServiceURL+ testingPath,
+            method: 'GET',
+            resolveWithFullResponse: true
           };
         
-        request.post(options, function(error, response) {
-            //return loadBalancer.balance(error, response, service)
-            if(error){ 
-                console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
-                return loadBalancer.balance(options, service)
-            }else{
-                console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
-                return habitsServiceURL
-            }
-        })
+        return await requestP(options).then(function(response) {
+            console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
+            return habitsServiceURL
+        }).catch((error)=>{
+            console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
+            return loadBalancer.balance(options, service)
+        })  
+
     },
-    reportsService: function() {
+    reportsService: async function() {
         let service = "reports"
         console.log("\n Checking if Reports service is active")
         reportsServiceURL = dictionary.services("main", service);
-        let testingPath = 'admin/reports/tasks'
+        let testingPath = '/admin/reports/tasks'
 
         var options = {
-            url: reportsServiceURL+ testingPath,
-            method: 'HEAD'
+            uri: reportsServiceURL+ testingPath,
+            method: 'GET',
+            resolveWithFullResponse: true
           };
         
-        request.post(options, function(error, response) {
-            //return loadBalancer.balance(error, response, service)
-            if(error){ 
-                console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
-                return loadBalancer.balance(options, service)
-            }else{
-                console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
-                return reportsServiceURL
-            }
-        })
+        return await requestP(options).then(function(response) {
+            console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
+            return reportsServiceURL
+        }).catch((error)=>{
+            console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
+            return loadBalancer.balance(options, service)
+        })  
          
     },
-    tasksService: function() {
+    tasksService: async function() {
         let service = "tasks"
         console.log("\n Checking if Tasks service is active")
-        tasksServiceURL= dictionary.services("main", service);
+        let tasksServiceURL= dictionary.services("main", service);
         let testingPath = ""
-
+        
         var options = {
-            url: tasksServiceURL+ testingPath,
-            method: 'HEAD'
+            uri: tasksServiceURL+ testingPath,
+            method: 'GET',
+            resolveWithFullResponse: true
           };
         
-        request.post(options, function(error, response) {
-            //return loadBalancer.balance(error, response, service)
-            if(error){ 
-                console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
-                return loadBalancer.balance(options, service)
-            }else{
-                console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
-                return tasksServiceURL
-            }
-        })
+        return await requestP(options).then(function(response) {
+            console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
+            return tasksServiceURL
+        }).catch((error)=>{
+            console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
+            return loadBalancer.balance(options, service)
+        })        
     },
-    userService: function() {
+    userService: async function() {
         let service = "user"
         console.log("\n Checking if User service is active")
         userServiceURL = dictionary.services("main", service);
         let testingPath = ""
 
         var options = {
-            url: userServiceURL+ testingPath,
-            method: 'HEAD'
+            uri: userServiceURL+ testingPath,
+            method: 'GET',
+            resolveWithFullResponse: true
           };
         
-        request.post(options, function(error, response) {
-            //return loadBalancer.balance(error, response, service)
-            if(error){ 
-                console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
-                return loadBalancer.balance(options, service)
-            }else{
-                console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
-                return userServiceURL
-            }
-        })
+        return await requestP(options).then(function(response) {
+            console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
+            return userServiceURL
+        }).catch((error)=>{
+            console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
+            return loadBalancer.balance(options, service)
+        })  
     },
 }

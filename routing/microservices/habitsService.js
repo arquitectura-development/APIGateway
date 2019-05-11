@@ -2,67 +2,116 @@ var express = require('express');
 var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 const serviceURL = require('../serviceRegistry/serviceRegistry.js')
-const BASE_URL = serviceURL.habitsService();
 
-const api = apiAdapter(BASE_URL)
+router.get('/habits', async (req, res) => {
+  const BASE_URL = await serviceURL.habitsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
 
-router.get('/habits', (req, res) => {
   api.get(req.path).then((resp, error) => {
-    if(error){
-      res.send(error)
-    }
-    res.send(resp.data)
-  })
+      if(error){
+        console.log("error", error)
+        res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
+      }
+    })
 })
 
-router.get('/habits/user', (req, res) => {
-  api.get(req.path).then(resp => {
-    res.send(resp.data)
-  })
+router.get('/habits/user', async (req, res) => {
+  const BASE_URL = await serviceURL.habitsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
+      if(error){
+        console.log("error", error)
+        res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
+      }
+    })
 })
 
-router.get('/habits/user', (req, res) => {
-    api.get(req.path).then(resp => {
+router.get('/habits/user', async (req, res) => {
+  const BASE_URL = await serviceURL.habitsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
       if(error){
+        console.log("error", error)
         res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
       }
-      res.send(resp.data)
     })
   })
 
-  router.post('/habits/user', (req, res) => {
-    api.get(req.path).then(resp => {
+  router.post('/habits/user', async (req, res) => {
+    const BASE_URL = await serviceURL.habitsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
       if(error){
+        console.log("error", error)
         res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
       }
-      res.send(resp.data)
     })
   })
 
-  router.get('/habits/user/:habitId', (req, res) => {
-    api.get(req.path).then(resp => {
+  router.get('/habits/user/:habitId', async(req, res) => {
+    const BASE_URL = await serviceURL.habitsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
       if(error){
+        console.log("error", error)
         res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
       }
-      res.send(resp.data)
     })
   })
 
-  router.delete('/habits/user/:habitId', (req, res) => {
-    api.get(req.path).then(resp => {
+  router.delete('/habits/user/:habitId', async(req, res) => {
+    const BASE_URL = await serviceURL.habitsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
       if(error){
+        console.log("error", error)
         res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
       }
-      res.send(resp.data)
     })
   })
 
-  router.put('/habits/user/:habitId', (req, res) => {
-    api.get(req.path).then(resp => {
+  router.put('/habits/user/:habitId', async (req, res) => {
+    const BASE_URL = await serviceURL.habitsService();
+  const api = apiAdapter(BASE_URL)
+  console.log("making get request to ", BASE_URL + req.path)
+
+  api.get(req.path).then((resp, error) => {
       if(error){
+        console.log("error", error)
         res.send(error)
+      }else{
+        console.log("data", resp.data)
+        res.send(resp.data)
       }
-      res.send(resp.data)
     })
   })
 

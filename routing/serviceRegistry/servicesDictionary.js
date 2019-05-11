@@ -1,10 +1,10 @@
 module.exports = {
     services: function(type, service){
         servicesDictionary = {
-            "reports": "https://arqui-reports-montoya.herokuapp.com/",
-            "user": "http://userapi-env.4hvthj6jvp.us-west-1.elasticbeanstalk.com/",
-            "tasks": "https://taskservice.herokuapp.com/",
-            "habits": "https://arquitectura-habits.herokuapp.com/"
+            "reports": "https://arqui-reports-montoya.herokuapp.com",
+            "user": "http://userapi-env.4hvthj6jvp.us-west-1.elasticbeanstalk.com",
+            "tasks": "https://taskservice.herokuapp.com",
+            "habits": "https://arquitectura-habits.herokuapp.com"
         }
 
         secondaryDictionary = {
