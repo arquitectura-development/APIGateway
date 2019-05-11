@@ -27,10 +27,10 @@ router.get('/admin/reports/tasks', async (req, res) => {
   api.get(req.path).then((resp) => {
       console.log("data", resp.data)
       res.send(resp.data)
-    }).catch(error){
+    }).catch(error =>{
       console.log("error", error)
       res.send(error)
-    }
+    })
 })
 
 router.get('/admin/reports/habits', async (req, res) => {
