@@ -28,7 +28,7 @@ module.exports = {
         let service = "reports"
         console.log("\n Checking if Reports service is active")
         reportsServiceURL = dictionary.services("main", service);
-        let testingPath = '/admin/reports/tasks'
+        let testingPath = '/admin/reports/habits'
 
         var options = {
             uri: reportsServiceURL+ testingPath,
