@@ -7,43 +7,31 @@ const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 const BASE_URL = serviceURL.tasksService();
 const api = apiAdapter(BASE_URL)
 
-router.get('/tasks', (req, res) => {
+router.get('/admin/tasks', (req, res) => {
   api.get(req.path).then(resp => {
     res.send(resp.data)
   })
 })
 
-router.post('/tasks/user', (req, res) => {
+router.post('/users/tasks', (req, res) => {
   api.get(req.path).then(resp => {
     res.send(resp.data)
   })
 })
 
-router.get('/tasks/user', (req, res) => {
+router.get('/users/tasks', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
     })
   })
 
-  router.get('/tasks/user/:taskId', (req, res) => {
+  router.delete('/users/tasks', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
     })
   })
 
-  router.delete('/tasks/user/:taskId', (req, res) => {
-    api.get(req.path).then(resp => {
-      res.send(resp.data)
-    })
-  })
-
-  router.delete('/tasks/user/:taskId', (req, res) => {
-    api.get(req.path).then(resp => {
-      res.send(resp.data)
-    })
-  })
-
-  router.put('/tasks/user/:taskId', (req, res) => {
+  router.put('/users/tasks', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
     })

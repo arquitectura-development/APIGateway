@@ -3,8 +3,8 @@ module.exports = {
         servicesDictionary = {
             "reports": "https://arqui-reports-montoya.herokuapp.com/",
             "user": "http://userapi-env.4hvthj6jvp.us-west-1.elasticbeanstalk.com/",
-            "tasks": "",
-            "habits": ""
+            "tasks": "https://taskservice.herokuapp.com/",
+            "habits": "https://arquitectura-habits.herokuapp.com/"
         }
 
         secondaryDictionary = {

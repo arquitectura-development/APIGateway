@@ -6,19 +6,19 @@ const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 const BASE_URL = serviceURL.reportsService();
 const api = apiAdapter(BASE_URL)
 
-router.get('/reports/users/:userId', (req, res) => {
+router.get('/users/reports', (req, res) => {
   api.get(req.path).then(resp => {
     res.send(resp.data)
   })
 })
 
-router.get('/reports/admin/tasks', (req, res) => {
+router.get('/admin/reports/tasks', (req, res) => {
   api.get(req.path).then(resp => {
     res.send(resp.data)
   })
 })
 
-router.get('/reports/admin/habits', (req, res) => {
+router.get('/admin/reports/habits', (req, res) => {
     api.get(req.path).then(resp => {
       res.send(resp.data)
     })
