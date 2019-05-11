@@ -19,6 +19,7 @@ module.exports = {
             console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
             return habitsServiceURL
         }).catch((error)=>{
+            console.log("error ", error)
             console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
             return loadBalancer.balance(options, service)
         })  
