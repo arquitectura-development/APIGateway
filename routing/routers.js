@@ -20,6 +20,10 @@ router.use(async (req, res, next) => {
         res.status(401)
         console.log("Unauthorized user")
         res.sendStatus(res.statusCode)
+    }else if(req.path.substring(0,6) == "/admin" && req.query.userId != 0){
+        res.status(403)
+        console.log("Unauthorized user")
+        res.sendStatus(res.statusCode)
     }else{
         const BASE_URL = await serviceURL.userService();
         const api = apiAdapter(BASE_URL)
@@ -27,7 +31,8 @@ router.use(async (req, res, next) => {
             console.log("the userId exists")
             next()
         }).catch((error) =>{
-            console.log("error ", error)
+            console.log("error", error.response.status)
+            res.sendStatus(error.response.status)
         })
     }
 })

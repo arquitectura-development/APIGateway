@@ -12,8 +12,8 @@ router.get('/users/reports', async (req, res) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
-    console.log("error", error)
-    res.send(error)
+    console.log("error", error.response.status)
+    res.sendStatus(error.response.status)
   })
 })
 
@@ -26,8 +26,8 @@ router.get('/admin/reports/tasks', async (req, res) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
-    console.log("error", error)
-    res.send(error)
+    console.log("error", error.response.status)
+    res.sendStatus(error.response.status)
   })
 })
 
@@ -40,9 +40,9 @@ router.get('/admin/reports/habits', async (req, res) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
-    console.log("error", error)
-    res.send(error)
+    console.log("error", error.response.status)
+    res.sendStatus(error.response.status)
   })
-  })
+})
 
 module.exports = router

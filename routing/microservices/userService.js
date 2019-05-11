@@ -12,8 +12,8 @@ router.get('/user/login', async(req, res) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
-    console.log("error", error.error)
-    res.send(error)
+    console.log("error", error.response.status)
+    res.sendStatus(error.response.status)
   })
 })
 
@@ -26,8 +26,8 @@ router.get('/user/signup', async(req, res) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
-    console.log("error", error.error)
-    res.send(error)
+    console.log("error", error.response.status)
+    res.sendStatus(error.response.status)
   })
 })
 
@@ -40,12 +40,12 @@ router.get('/user/name', async(req, res) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
-    console.log("error", error.error)
-    res.send(error)
+    console.log("error", error.response.status)
+    res.sendStatus(error.response.status)
   })
-  })
+})
 
-  router.get('/user/auth', async(req, res) => {
+router.get('/user/auth', async(req, res) => {
     const BASE_URL = await serviceURL.userService();
     const api = apiAdapter(BASE_URL)
     console.log("making get request to ", BASE_URL + req.path)
@@ -54,9 +54,9 @@ router.get('/user/name', async(req, res) => {
       console.log("data", resp.data)
       res.send(resp.data)
     }).catch(error =>{
-      console.log("error", error.error)
-      res.send(error)
+      console.log("error", error.response.status)
+      res.sendStatus(error.response.status)
     })
-    })
+})
 
 module.exports = router
