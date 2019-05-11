@@ -41,6 +41,7 @@ module.exports = {
             console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
             return reportsServiceURL
         }).catch((error)=>{
+            console.log("error ", error)
             console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
             return loadBalancer.balance(options, service)
         })  
@@ -62,6 +63,7 @@ module.exports = {
             console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
             return tasksServiceURL
         }).catch((error)=>{
+            console.log("error ", error)
             console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
             return loadBalancer.balance(options, service)
         })        
@@ -82,6 +84,7 @@ module.exports = {
             console.log("\n Service Registry Found", service,  "Service works by getting a", response.statusCode, " status code")
             return userServiceURL
         }).catch((error)=>{
+            console.log("error ", error)
             console.log("\n Service Registry DIDN'T FOUND", service,  " service.")
             return loadBalancer.balance(options, service)
         })  
