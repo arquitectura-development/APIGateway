@@ -6,7 +6,7 @@ const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 router.get('/admin/tasks', async (req, res, next) => {
   const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -21,7 +21,7 @@ router.get('/admin/tasks', async (req, res, next) => {
 router.post('/users/tasks', async (req, res) => {
   const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -35,7 +35,7 @@ router.post('/users/tasks', async (req, res) => {
 router.get('/users/tasks', async (req, res) => {
   const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -50,7 +50,7 @@ router.get('/users/tasks', async (req, res) => {
 router.get('/users/tasks/:taskId', async(req, res) => {
   const BASE_URL = await serviceURL.tasksService();
 const api = apiAdapter(BASE_URL)
-console.log("making get request to ", BASE_URL + req.path)
+console.log("makin' request to ", BASE_URL + req.path)
 
 api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
   console.log("data", resp.data)
@@ -64,7 +64,7 @@ api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
 router.delete('/users/tasks/:taskId', async(req, res) => {
   const BASE_URL = await serviceURL.tasksService();
 const api = apiAdapter(BASE_URL)
-console.log("making get request to ", BASE_URL + req.path)
+console.log("makin' request to ", BASE_URL + req.path)
 
 api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
   console.log("data", resp.data)
@@ -78,7 +78,7 @@ api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
 router.put('/users/tasks/:taskId', async (req, res) => {
   const BASE_URL = await serviceURL.tasksService();
 const api = apiAdapter(BASE_URL)
-console.log("making get request to ", BASE_URL + req.path)
+console.log("makin' request to ", BASE_URL + req.path)
 
 api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
   console.log("data", resp.data)

@@ -6,7 +6,7 @@ const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 router.get('/user/login', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path).then((resp) => {
     console.log("data", resp.data)
@@ -20,7 +20,7 @@ router.get('/user/login', async(req, res) => {
 router.get('/user/signup', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path).then((resp) => {
     console.log("data", resp.data)
@@ -34,7 +34,7 @@ router.get('/user/signup', async(req, res) => {
 router.get('/user/name', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -48,7 +48,7 @@ router.get('/user/name', async(req, res) => {
 router.get('/user/auth', async(req, res) => {
     const BASE_URL = await serviceURL.userService();
     const api = apiAdapter(BASE_URL)
-    console.log("making get request to ", BASE_URL + req.path)
+    console.log("makin' request to ", BASE_URL + req.path)
   
     api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
       console.log("data", resp.data)

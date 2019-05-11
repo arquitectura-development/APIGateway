@@ -6,7 +6,7 @@ const serviceURL = require('../serviceRegistry/serviceRegistry.js')
 router.get('/admin/habits', async (req, res) => {
   const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -20,7 +20,7 @@ router.get('/admin/habits', async (req, res) => {
 router.get('/users/habits', async (req, res) => {
   const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -34,7 +34,7 @@ router.get('/users/habits', async (req, res) => {
 router.post('/users/habits', async (req, res) => {
   const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -48,7 +48,7 @@ router.post('/users/habits', async (req, res) => {
 router.get('/users/habits/:habitId', async (req, res) => {
   const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -62,7 +62,7 @@ router.get('/users/habits/:habitId', async (req, res) => {
 router.delete('/users/habits/:habitId', async (req, res) => {
     const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
@@ -76,7 +76,7 @@ router.delete('/users/habits/:habitId', async (req, res) => {
 router.put('/users/habits:/habitId', async(req, res) => {
     const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
+  console.log("makin' request to ", BASE_URL + req.path)
 
   api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
     console.log("data", resp.data)
