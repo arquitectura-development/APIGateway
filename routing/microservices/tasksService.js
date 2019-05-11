@@ -3,12 +3,12 @@ var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 
-router.get('/admin/tasks/', async (req, res, next) => {
+router.get('/admin/tasks', async (req, res, next) => {
   const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp, error) => {
       if(error){
         console.log("error", error)
         res.send(error)
@@ -20,12 +20,12 @@ router.get('/admin/tasks/', async (req, res, next) => {
  
 })
 
-router.post('/users/tasks/', async (req, res) => {
+router.post('/users/tasks', async (req, res) => {
   const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp, error) => {
       if(error){
         console.log("error", error)
         res.send(error)
@@ -36,52 +36,46 @@ router.post('/users/tasks/', async (req, res) => {
     })
 })
 
-router.get('/users/tasks/', async (req, res) => {
+router.get('/users/tasks', async (req, res) => {
   const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
+  })
   })
 
-  router.delete('/users/tasks/', async(req, res) => {
+  router.delete('/users/tasks', async(req, res) => {
     const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
+  })
   })
 
-  router.put('/users/tasks/', async (req, res) => {
+  router.put('/users/tasks', async (req, res) => {
     const BASE_URL = await serviceURL.tasksService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
+  })
   })
 
 module.exports = router

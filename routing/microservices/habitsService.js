@@ -3,116 +3,76 @@ var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 const serviceURL = require('../serviceRegistry/serviceRegistry.js')
 
-router.get('/habits', async (req, res) => {
+router.get('/admin/habits', async (req, res) => {
   const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
+  })
 })
 
-router.get('/habits/user', async (req, res) => {
+router.get('/users/habits', async (req, res) => {
   const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
+  })
 })
 
-router.get('/habits/user', async (req, res) => {
+router.post('/users/habits', async (req, res) => {
   const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
   })
+})
 
-  router.post('/habits/user', async (req, res) => {
+  router.delete('/users/habits', async (req, res) => {
     const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
   })
+})
 
-  router.get('/habits/user/:habitId', async(req, res) => {
+  router.put('/users/habits', async(req, res) => {
     const BASE_URL = await serviceURL.habitsService();
   const api = apiAdapter(BASE_URL)
   console.log("making get request to ", BASE_URL + req.path)
 
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
+  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+    console.log("data", resp.data)
+    res.send(resp.data)
+  }).catch(error =>{
+    console.log("error", error.error)
+    res.send(error)
+  })
   })
 
-  router.delete('/habits/user/:habitId', async(req, res) => {
-    const BASE_URL = await serviceURL.habitsService();
-  const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
-
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
-  })
-
-  router.put('/habits/user/:habitId', async (req, res) => {
-    const BASE_URL = await serviceURL.habitsService();
-  const api = apiAdapter(BASE_URL)
-  console.log("making get request to ", BASE_URL + req.path)
-
-  api.get(req.path).then((resp, error) => {
-      if(error){
-        console.log("error", error)
-        res.send(error)
-      }else{
-        console.log("data", resp.data)
-        res.send(resp.data)
-      }
-    })
-  })
+ 
 
 module.exports = router
