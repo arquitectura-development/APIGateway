@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 const serviceURL = require('../serviceRegistry/serviceRegistry.js');
+// Parse URL-encoded bodies (as sent by HTML forms)
+router.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+router.use(express.json());
 
 router.post('/users/login', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
@@ -18,11 +23,12 @@ router.post('/users/login', async(req, res) => {
 })
 
 router.post('/users/signup', async(req, res) => {
+  console.log("Body ", req.body )
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
 
-  api.post(req.path).then((resp) => {
+  api.post(req.path, req.body).then((resp) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
