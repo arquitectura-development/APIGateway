@@ -31,12 +31,12 @@ router.get('/user/signup', async(req, res) => {
   })
 })
 
-router.get('/user/name', async(req, res) => {
+router.get('/admin/users/name?searchUserId=y', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
 
-  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+  api.get(req.path + "?userId=" + req.query.userId + "&searchUserId=" + req.query.searchUserId).then((resp) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
