@@ -87,6 +87,4 @@ router.put('/users/habits:/habitId', async(req, res) => {
   })
 })
 
- 
-
 module.exports = router

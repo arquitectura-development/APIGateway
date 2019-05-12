@@ -18,8 +18,8 @@ module.exports = {
             return url
         }).catch((error)=>{
             console.log("\n Service Registry DIDN'T FOUND SECONDARY", service,  " service.")
-            console.log("error", error.response.status)
-            res.sendStatus(error.response.status)
+            console.log("error", error)
+            res.send(error)
         })    
     }
 }
