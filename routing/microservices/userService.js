@@ -3,7 +3,7 @@ var router = express.Router()
 const apiAdapter = require('../apiAdapter')
 const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 
-router.get('/user/login', async(req, res) => {
+router.get('/users/login', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
@@ -17,7 +17,7 @@ router.get('/user/login', async(req, res) => {
   })
 })
 
-router.get('/user/signup', async(req, res) => {
+router.get('/users/signup', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
@@ -45,7 +45,7 @@ router.get('/admin/users/name?searchUserId=y', async(req, res) => {
   })
 })
 
-router.get('/user/auth', async(req, res) => {
+router.get('/users/auth', async(req, res) => {
     const BASE_URL = await serviceURL.userService();
     const api = apiAdapter(BASE_URL)
     console.log("makin' request to ", BASE_URL + req.path)
