@@ -31,7 +31,7 @@ router.get('/users/signup', async(req, res) => {
   })
 })
 
-router.get('/admin/users/name?searchUserId=y', async(req, res) => {
+router.get('/admin/users/name', async(req, res) => {
   const BASE_URL = await serviceURL.userService();
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
