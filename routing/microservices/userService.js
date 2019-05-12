@@ -70,7 +70,7 @@ router.delete("/users/delete", async(req, res) =>{
   const api = apiAdapter(BASE_URL);
   console.log("makin' request to", BASE_URL+req.path);
 
-  api.post(req.path+"?userId=", req.query.userId).then(resp =>{
+  api.delete(req.path+"?userId=", req.query.userId).then(resp =>{
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
