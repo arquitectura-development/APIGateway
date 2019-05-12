@@ -13,7 +13,7 @@ router.post('/users/login', async(req, res) => {
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
 
-  api.post(req.path).then((resp) => {
+  api.post(req.path, req.body).then((resp) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{

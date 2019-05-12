@@ -36,7 +36,7 @@ router.post('/users/habits', async (req, res) => {
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
 
-  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+  api.get(req.path + "?userId=" + req.query.userId, req.body ).then((resp) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
@@ -78,7 +78,7 @@ router.put('/users/habits:/habitId', async(req, res) => {
   const api = apiAdapter(BASE_URL)
   console.log("makin' request to ", BASE_URL + req.path)
 
-  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
+  api.get(req.path + "?userId=" + req.query.userId, req.body ).then((resp) => {
     console.log("data", resp.data)
     res.send(resp.data)
   }).catch(error =>{
