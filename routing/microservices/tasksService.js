@@ -29,6 +29,7 @@ router.delete('/users/tasks/:taskId', async(req, res) => {
 })
 
 router.put('/users/tasks/:taskId', async (req, res) => {
+  console.log("body ", req.body)  
   const BASE_URL = await serviceURL.tasksService();
   http.request(req, res, BASE_URL, req.method);
 })
