@@ -1,48 +1,21 @@
 var express = require('express');
 var router = express.Router()
-const apiAdapter = require('../apiAdapter')
+const http = require("./httpRequest/httpRequest.js")
 const serviceURL = require('../serviceRegistry/serviceRegistry.js');
 
 router.get('/users/reports', async (req, res) => {
   const BASE_URL = await serviceURL.reportsService();
-  const api = apiAdapter(BASE_URL)
-  console.log("makin' request to ", BASE_URL + req.path)
-
-  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
-    console.log("data", resp.data)
-    res.send(resp.data)
-  }).catch(error =>{
-    console.log("error", error.response.status)
-    res.sendStatus(error.response.status)
-  })
+  http.request(req, res, BASE_URL, req.method);
 })
 
 router.get('/admin/reports/tasks', async (req, res) => {
   const BASE_URL = await serviceURL.reportsService();
-  const api = apiAdapter(BASE_URL)
-  console.log("makin' request to ", BASE_URL + req.path)
-
-  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
-    console.log("data", resp.data)
-    res.send(resp.data)
-  }).catch(error =>{
-    console.log("error", error.response.status)
-    res.sendStatus(error.response.status)
-  })
+  http.request(req, res, BASE_URL, req.method);
 })
 
 router.get('/admin/reports/habits', async (req, res) => {
-    const BASE_URL = await serviceURL.reportsService();
-  const api = apiAdapter(BASE_URL)
-  console.log("makin' request to ", BASE_URL + req.path)
-
-  api.get(req.path + "?userId=" + req.query.userId ).then((resp) => {
-    console.log("data", resp.data)
-    res.send(resp.data)
-  }).catch(error =>{
-    console.log("error", error.response.status)
-    res.sendStatus(error.response.status)
-  })
+  const BASE_URL = await serviceURL.reportsService();
+  http.request(req, res, BASE_URL, req.method);
 })
 
 module.exports = router
