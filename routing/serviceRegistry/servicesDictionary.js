@@ -1,20 +1,20 @@
 module.exports = {
     services: function(type, service){
-        servicesDictionary = {
+        const servicesDictionary = {
             "reports": "https://arqui-reports-montoya.herokuapp.com",
             "user": "https://users--api.herokuapp.com",
             "tasks": "https://taskservice.herokuapp.com",
             "habits": "https://arquitectura-habits.herokuapp.com"
         }
 
-        secondaryDictionary = {
+        const secondaryDictionary = {
             "reports": "https://arqui-reports-montoya-2.herokuapp.com",
             "user": "",
             "tasks": "",
-            "habits": ""
+            "habits": "https://arquitectura-habits2.herokuapp.com"
         }
 
-        chooseService = function(service){
+        const chooseService = function(service){
             if(service == "reports"){
                 return servicesDictionary.reports
             }else if(service == "user"){
@@ -26,7 +26,7 @@ module.exports = {
             }
         }
 
-        chooseSecondaryService = function(service){
+        const chooseSecondaryService = function(service){
             if(service == "reports"){
                 return secondaryDictionary.reports
             }else if(service == "user"){

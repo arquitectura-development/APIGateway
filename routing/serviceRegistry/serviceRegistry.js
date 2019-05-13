@@ -4,13 +4,12 @@ var dictionary = require("./servicesDictionary")
 
 module.exports = {
     habitsService: async function() {
-        let service = "habits"
-        habitsServiceURL = dictionary.services("main", service);
+        const service = "habits"
+        const habitsServiceURL = dictionary.services("main", service);
         console.log("\n Checking if Habits service is active")
-        let testingPath = ''
 
         var options = {
-            uri: habitsServiceURL+ testingPath,
+            uri: habitsServiceURL,
             method: 'GET',
             resolveWithFullResponse: true
           };
@@ -28,11 +27,10 @@ module.exports = {
     reportsService: async function() {
         let service = "reports"
         console.log("\n Checking if Reports service is active")
-        reportsServiceURL = dictionary.services("main", service);
-        let testingPath = '/'
+        const reportsServiceURL = dictionary.services("main", service);
 
         var options = {
-            uri: reportsServiceURL+ testingPath,
+            uri: reportsServiceURL,
             method: 'GET',
             resolveWithFullResponse: true
           };
@@ -51,10 +49,9 @@ module.exports = {
         let service = "tasks"
         console.log("\n Checking if Tasks service is active")
         let tasksServiceURL= dictionary.services("main", service);
-        let testingPath = ""
         
         var options = {
-            uri: tasksServiceURL+ testingPath,
+            uri: tasksServiceURL,
             method: 'GET',
             resolveWithFullResponse: true
           };
@@ -71,11 +68,10 @@ module.exports = {
     userService: async function() {
         let service = "user"
         console.log("\n Checking if User service is active")
-        userServiceURL = dictionary.services("main", service);
-        let testingPath = ""
+        const userServiceURL = dictionary.services("main", service);
 
         var options = {
-            uri: userServiceURL+ testingPath,
+            uri: userServiceURL,
             method: 'GET',
             resolveWithFullResponse: true
           };

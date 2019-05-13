@@ -3,9 +3,8 @@ var dictionary = require("../serviceRegistry/servicesDictionary")
 
 module.exports = {
     balance: async function(service) {
-        url = await dictionary.services("secondary", service);
+        const url = await dictionary.services("secondary", service);
         console.log("\n Checking if SECONDARY", service, " service is active")
-        testingPath = ''
 
         var options = {
             uri: url+ testingPath,
