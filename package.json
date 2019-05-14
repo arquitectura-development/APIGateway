@@ -34,7 +34,8 @@
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
