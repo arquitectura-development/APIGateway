@@ -29,7 +29,7 @@ router.delete('/users/habits/:habitId', async (req, res) => {
 	http.request(req, res, BASE_URL, req.method);
 });
 
-router.put('/users/habits:/habitId', async(req, res) => {
+router.put('/users/habits/:habitId', async(req, res) => {
 	const BASE_URL = await serviceURL.habitsService();
 	http.request(req, res, BASE_URL, req.method);
 });
