@@ -31,7 +31,7 @@ describe('habitsService', async function(){
 	});
 	it('post path /users/habits/?userId=x should respond', function(done){
 		chai.request(url)
-			.post('/users/habits/?userId=1')
+			.post('/users/habits/?userId=x')
 			.end( function(err, res){
 				expect(res).to.have.status(404);
 				done();
