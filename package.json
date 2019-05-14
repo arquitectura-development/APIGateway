@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha ./testing --recursive"
+    "test": "nyc mocha ./testing --recursive"
   },
   "repository": {
     "type": "git",
@@ -29,11 +29,15 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "express": "^4.16.4",
+    "jslint": "^0.12.1",
+    "jslinter": "^1.5.47",
     "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
     "eslint-plugin-mocha": "^5.3.0"
   }
 }
